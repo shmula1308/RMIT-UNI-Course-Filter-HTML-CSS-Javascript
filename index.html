@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <title>Sortable List of courses</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="main-title">Courses & degrees</h1>
+    </header>
+    <main>
+      <div class="courses-filter">
+        <button type="button" class="btn filter-btn" value="all" active>
+          <div class="btn-content">All</div>
+        </button>
+        <button type="button" class="btn filter-btn" value="short">
+          <div class="btn-content">
+            <span class="filter-square blue"></span>
+            <span>Future Skills short courses</span>
+          </div>
+        </button>
+        <button type="button" class="btn filter-btn" value="bundle">
+          <div class="btn-content">
+            <span class="filter-square green"></span>
+            <span>Future Skills bundles</span>
+          </div>
+        </button>
+        <button type="button" class="btn filter-btn" value="postgraduate">
+          <div class="btn-content">
+            <span class="filter-square red"></span>
+            <span>Postgraduate</span>
+          </div>
+        </button>
+        <button type="button" class="btn filter-btn" value="undergraduate">
+          <div class="btn-content">
+            <span class="filter-square yellow"></span>
+            <span>Undergraduate</span>
+          </div>
+        </button>
+        <div class="industry-filter">
+          <button type="button" class="btn toggle-industry-filter-list">
+            <span>Category</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <button type="button" class="reset">Reset</button>
+          <div class="industry-filter-body">
+            <ul class="flex-container industry-filter-list">
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Artificial Intelligence"
+                  type="checkbox"
+                  value="artificial-intelligence"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Artificial Intelligence</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Bussines and Finance"
+                  type="checkbox"
+                  value="bussines-and-finance"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Bussines & Finance</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Data Science & Analytics"
+                  type="checkbox"
+                  value="data-science"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Data Science & Analytics</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input aria-label="Design" type="checkbox" value="design" />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Design</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Health Transformation"
+                  type="checkbox"
+                  value="health-transformation"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Health Transformation</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="IT and Security"
+                  type="checkbox"
+                  value="it-security"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">IT & Security</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Marketing"
+                  type="checkbox"
+                  value="marketing"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Marketing</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Science & Engineering"
+                  type="checkbox"
+                  value="science-engineering"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Science & Engineering</span>
+              </li>
+              <li class="idustry-filter-list-item">
+                <input
+                  aria-label="Software Development"
+                  type="checkbox"
+                  value="software-devleopment"
+                />
+                <div class="checkbox-ripple"></div>
+                <i class="far fa-square"></i>
+                <!-- <i class="fas fa-square"></i> -->
+                <span class="list-item-label">Software Development</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="courses">
+        <div class="course-card">
+          <a href="#" class="course-card-link">
+            <img
+              src="images/[studyrmit.online][318]online-programs-desktop-gcba.jpg"
+              alt=""
+              class="course-card-image bundle"
+            />
+            <div class="course-card-info">
+              <hgroup>
+                <h4 class="course-card-tag">Future Skills Bundle</h4>
+                <h3 class="course-card-title">Brand + Content Marketing</h3>
+              </hgroup>
+              <footer class="course-card-footer">
+                <div class="course-card-duration">
+                  <h4 class="course-card-tag">Courses</h4>
+                  <span>2 Courses</span>
+                </div>
+                <div class="course-card-start-date">
+                  <h4 class="course-card-tag">Next Start</h4>
+                  <time>08 Mar 2021</time>
+                </div>
+              </footer>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
