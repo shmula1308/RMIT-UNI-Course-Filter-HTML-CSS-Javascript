@@ -4,9 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap"
+      href="CSS/styles.css"
+      rel="stylesheet"
+      <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,36 +28,40 @@
       <h1 class="main-title">Courses & degrees</h1>
     </header>
     <main>
-      <div class="courses-filter">
-        <button type="button" class="btn filter-btn" value="all" active>
-          <div class="btn-content">All</div>
-        </button>
-        <button type="button" class="btn filter-btn" value="short">
-          <div class="btn-content">
-            <span class="filter-square blue"></span>
-            <span>Future Skills short courses</span>
-          </div>
-        </button>
-        <button type="button" class="btn filter-btn" value="bundle">
-          <div class="btn-content">
-            <span class="filter-square green"></span>
-            <span>Future Skills bundles</span>
-          </div>
-        </button>
-        <button type="button" class="btn filter-btn" value="postgraduate">
-          <div class="btn-content">
-            <span class="filter-square red"></span>
-            <span>Postgraduate</span>
-          </div>
-        </button>
-        <button type="button" class="btn filter-btn" value="undergraduate">
-          <div class="btn-content">
-            <span class="filter-square yellow"></span>
-            <span>Undergraduate</span>
-          </div>
-        </button>
+      <div class="main-container">
+        <div class="courses-filter">
+          <button type="button" class="btn filter-btn active" value="all">
+            <div class="btn-content">
+              <span>All</span>
+            </div>
+          </button>
+          <button type="button" class="btn filter-btn" value="short">
+            <div class="btn-content">
+              <span class="filter-square blue"></span>
+              <span>Future Skills short courses</span>
+            </div>
+          </button>
+          <button type="button" class="btn filter-btn" value="bundle">
+            <div class="btn-content">
+              <span class="filter-square green"></span>
+              <span>Future Skills bundles</span>
+            </div>
+          </button>
+          <button type="button" class="btn filter-btn" value="postgraduate">
+            <div class="btn-content">
+              <span class="filter-square red"></span>
+              <span>Postgraduate</span>
+            </div>
+          </button>
+          <button type="button" class="btn filter-btn" value="undergraduate">
+            <div class="btn-content">
+              <span class="filter-square yellow"></span>
+              <span>Undergraduate</span>
+            </div>
+          </button>
+        </div>
         <div class="industry-filter">
-          <button type="button" class="btn toggle-industry-filter-list">
+          <button type="button" class="toggle-industry-filter-list">
             <span>Category</span>
             <i class="fas fa-chevron-down"></i>
           </button>
@@ -156,244 +166,296 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class="courses">
-        <div class="course-card future-skills">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/[studyrmit.online][318]online-programs-desktop-gcba.jpg"
-              alt=""
-              class="course-card-image green"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Bundle</h4>
-                <h3 class="course-card-title">Brand + Content Marketing</h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Courses</h4>
-                  <span>2 Courses</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card short-course">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/AdobeStock_163751505_0.jpg"
-              alt=""
-              class="course-card-image blue"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Bundle</h4>
-                <h3 class="course-card-title">Brand Experience</h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>6 weeks</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card short-course">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/AdobeStock_316971036.jpg"
-              alt=""
-              class="course-card-image blue"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills short course</h4>
-                <h3 class="course-card-title">
-                  Content and Social Media Marketing
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>6 weeks</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card short-course">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/AdobeStock_335203626_1.jpg"
-              alt=""
-              class="course-card-image blue"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Short course</h4>
-                <h3 class="course-card-title">
-                  Customer Experience Strategy and Design
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>6 weeks</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card future-skills">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/HERO_DMK101_Digital Marketing_Strategy_1600x500x72dpi_2199 (1).jpg"
-              alt=""
-              class="course-card-image green"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Bundle</h4>
-                <h3 class="course-card-title">
-                  Digital Marketing Strategy + Campaigns
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Courses</h4>
-                  <span>2 Courses</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card short-course">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/HERO_DMK103_ContentSocialMediaMarketing_web.jpg"
-              alt=""
-              class="course-card-image blue"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Short Course</h4>
-                <h3 class="course-card-title">
-                  Implementing Digital Marketing Campaigns
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>6 weeks</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card future-skills">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/HERO_DMK104_Brand_Experience_Edited.jpg"
-              alt=""
-              class="course-card-image green"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Bundle</h4>
-                <h3 class="course-card-title">Innovative Leadership</h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Courses</h4>
-                  <span>2 Courses</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card short-course">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/HERO_DTR202_AdvancedProductManagement_1147694105_web.jpg"
-              alt=""
-              class="course-card-image blue"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Future Skills Short course</h4>
-                <h3 class="course-card-title">
-                  Marketing Analytics and insights
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>6 weeks</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>08 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
-        </div>
-        <div class="course-card postgraduate">
-          <a href="#" class="course-card-link">
-            <img
-              src="images/RMIT_ONLINE_DAY1_01_HIGHERGROUND_0049.jpg"
-              alt=""
-              class="course-card-image red"
-            />
-            <div class="course-card-info">
-              <hgroup>
-                <h4 class="course-card-tag">Postgraduate</h4>
-                <h3 class="course-card-title">
-                  Graduate Certificate in business analytics
-                </h3>
-              </hgroup>
-              <footer class="course-card-footer">
-                <div class="course-card-duration">
-                  <h4 class="course-card-tag">Duration</h4>
-                  <span>8 months</span>
-                </div>
-                <div class="course-card-start-date">
-                  <h4 class="course-card-tag">Next Start</h4>
-                  <time>09 Mar 2021</time>
-                </div>
-              </footer>
-            </div>
-          </a>
+        <div class="courses">
+          <div class="course-card future-skills">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/[studyrmit.online][318]online-programs-desktop-gcba.jpg"
+                alt=""
+                class="course-card-image green"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Bundle</h4>
+                  <h3 class="course-card-title">Brand + Content Marketing</h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Courses</h4>
+                    <span>2 Courses</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/AdobeStock_163751505_0.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Bundle</h4>
+                  <h3 class="course-card-title">Brand Experience</h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/AdobeStock_316971036.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills short course</h4>
+                  <h3 class="course-card-title">
+                    Content and Social Media Marketing
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/AdobeStock_335203626_1.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Short course</h4>
+                  <h3 class="course-card-title">
+                    Customer Experience Strategy and Design
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/AdobeStock_335203626_1.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Short course</h4>
+                  <h3 class="course-card-title">
+                    Design thinking for innovation
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/AdobeStock_335203626_1.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Short course</h4>
+                  <h3 class="course-card-title">Digital Marketing strategy</h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card future-skills">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/HERO_DMK101_Digital Marketing_Strategy_1600x500x72dpi_2199 (1).jpg"
+                alt=""
+                class="course-card-image green"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Bundle</h4>
+                  <h3 class="course-card-title">
+                    Digital Marketing Strategy + Campaigns
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Courses</h4>
+                    <span>2 Courses</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/HERO_DMK103_ContentSocialMediaMarketing_web.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Short Course</h4>
+                  <h3 class="course-card-title">
+                    Implementing Digital Marketing Campaigns
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card future-skills">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/HERO_DMK104_Brand_Experience_Edited.jpg"
+                alt=""
+                class="course-card-image green"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Bundle</h4>
+                  <h3 class="course-card-title">Innovative Leadership</h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Courses</h4>
+                    <span>2 Courses</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card short-course">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/HERO_DTR202_AdvancedProductManagement_1147694105_web.jpg"
+                alt=""
+                class="course-card-image blue"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Future Skills Short course</h4>
+                  <h3 class="course-card-title">
+                    Marketing Analytics and insights
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>6 weeks</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>08 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
+          <div class="course-card postgraduate">
+            <a href="#" class="course-card-link">
+              <img
+                src="images/RMIT_ONLINE_DAY1_01_HIGHERGROUND_0049.jpg"
+                alt=""
+                class="course-card-image red"
+              />
+              <div class="course-card-info">
+                <hgroup>
+                  <h4 class="course-card-tag">Postgraduate</h4>
+                  <h3 class="course-card-title">
+                    Graduate Certificate in business analytics
+                  </h3>
+                </hgroup>
+                <footer class="course-card-footer">
+                  <div class="course-card-duration">
+                    <h4 class="course-card-tag">Duration</h4>
+                    <span>8 months</span>
+                  </div>
+                  <div class="course-card-start-date">
+                    <h4 class="course-card-tag">Next Start</h4>
+                    <time>09 Mar 2021</time>
+                  </div>
+                </footer>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </main>
