@@ -12,9 +12,8 @@
 
   --shadow-100: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  --shadow-200: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-    rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  --br: 5px;
+  --shadow-200: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 
   --fw-thin: 100;
   --fw-light: 300;
@@ -22,14 +21,16 @@
   --fw-medium: 500;
 
   --fs-1: 2.625rem;
-  --fs-3: 1.125;
+  --fs-3: 1.125em;
   --fs-4: 0.75rem;
+
+  --br: 5px;
 }
 
 /* Reset */
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -202,8 +203,17 @@ img {
 
 /* Courses */
 
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .course-card {
-  width: 450px;
+  flex-basis: 25%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  padding: 8px;
 }
 
 .course-card-image {
@@ -211,4 +221,60 @@ img {
   object-position: 0px 0px;
   width: 100%;
   height: 200px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.course-card-link {
+  display: block;
+  width: 100%;
+  box-shadow: var(--shadow-100);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.course-card-link:hover {
+  box-shadow: var(--shadow-200);
+}
+
+hgroup {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.course-card-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background-color: var(--clr-neutral-200);
+}
+
+.course-card-tag {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+}
+
+.course-card-title {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-medium);
+  color: #121212;
+  margin: 4px 0 1em 0;
+}
+
+.course-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.course-card-footer :is(span, time) {
+  display: block;
+  color: #000;
+  font-weight: var(--fw-light);
+  font-size: 14px;
+  margin-top: 6px;
 }
