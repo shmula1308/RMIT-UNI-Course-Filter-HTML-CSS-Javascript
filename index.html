@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+    <link
       href="CSS/styles.css"
       rel="stylesheet"
       <link
@@ -15,12 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-      crossorigin="anonymous"
-    />
+
     <title>Sortable List of courses</title>
   </head>
   <body>
@@ -60,107 +61,138 @@
             </div>
           </button>
         </div>
-        <div class="industry-filter">
-          <button type="button" class="toggle-industry-filter-list">
+        <div class="industry-filter industry-filter-active">
+          <button type="button" class="filter-toggle">
             <span>Category</span>
             <i class="fas fa-chevron-down"></i>
           </button>
           <button type="button" class="reset">Reset</button>
           <div class="industry-filter-body">
-            <ul class="flex-container industry-filter-list">
+            <ul class="industry-filter-list">
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Artificial Intelligence"
-                  type="checkbox"
-                  value="artificial-intelligence"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Artificial Intelligence"
+                    type="checkbox"
+                    value="artificial-intelligence"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Artificial Intelligence</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Bussines and Finance"
-                  type="checkbox"
-                  value="bussines-and-finance"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Bussines and Finance"
+                    type="checkbox"
+                    value="bussines-and-finance"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Bussines & Finance</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Data Science & Analytics"
-                  type="checkbox"
-                  value="data-science"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Data Science & Analytics"
+                    type="checkbox"
+                    value="data-science"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Data Science & Analytics</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input aria-label="Design" type="checkbox" value="design" />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Design"
+                    type="checkbox"
+                    value="design"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Design</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Health Transformation"
-                  type="checkbox"
-                  value="health-transformation"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Health Transformation"
+                    type="checkbox"
+                    value="health-transformation"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Health Transformation</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="IT and Security"
-                  type="checkbox"
-                  value="it-security"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="IT and Security"
+                    type="checkbox"
+                    value="it-security"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">IT & Security</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Marketing"
-                  type="checkbox"
-                  value="marketing"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Marketing"
+                    type="checkbox"
+                    value="marketing"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Marketing</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Science & Engineering"
-                  type="checkbox"
-                  value="science-engineering"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Science & Engineering"
+                    type="checkbox"
+                    value="science-engineering"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Science & Engineering</span>
               </li>
               <li class="idustry-filter-list-item">
-                <input
-                  aria-label="Software Development"
-                  type="checkbox"
-                  value="software-devleopment"
-                />
-                <div class="checkbox-ripple"></div>
-                <i class="far fa-square"></i>
-                <!-- <i class="fas fa-square"></i> -->
+                <div class="selection-controls">
+                  <input
+                    aria-label="Software Development"
+                    type="checkbox"
+                    value="software-devleopment"
+                    class="filter-checkbox"
+                  />
+                  <div class="checkbox-ripple"></div>
+                  <i class="far fa-square"></i>
+                  <i class="fas fa-square fa-square-selected"></i>
+                </div>
                 <span class="list-item-label">Software Development</span>
               </li>
             </ul>
