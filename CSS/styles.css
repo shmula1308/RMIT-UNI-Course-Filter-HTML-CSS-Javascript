@@ -201,6 +201,10 @@ img {
   display: none;
 }
 
+.list-item-label {
+  cursor: pointer;
+}
+
 /* Courses */
 
 .courses {
@@ -221,16 +225,15 @@ img {
   object-position: 0px 0px;
   width: 100%;
   height: 200px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
 }
 
 .course-card-link {
   display: block;
-  width: 100%;
   box-shadow: var(--shadow-100);
   transition: all 0.3s ease;
   text-decoration: none;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .course-card-link:hover {
@@ -267,8 +270,6 @@ hgroup {
   display: flex;
   justify-content: space-between;
   padding-top: 1em;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 .course-card-footer :is(span, time) {
@@ -277,4 +278,22 @@ hgroup {
   font-weight: var(--fw-light);
   font-size: 14px;
   margin-top: 6px;
+}
+
+/* Color coding cards */
+
+.short-course img {
+  border-bottom: 7px solid var(--clr-blue);
+}
+
+.future-skills img {
+  border-bottom: 7px solid var(--clr-green);
+}
+
+.postgraduate img {
+  border-bottom: 7px solid var(--clr-red);
+}
+
+.undergraduate img {
+  border-bottom: 7px solid var(--clr-yellow);
 }
