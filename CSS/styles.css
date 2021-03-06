@@ -103,6 +103,8 @@ img {
   background-color: var(--clr-neutral-100);
   outline: none;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:active {
@@ -125,6 +127,28 @@ img {
 .active {
   background-color: #4a4a4a;
   color: #fff;
+}
+
+.ripple {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: animate 0.7s linear;
+  background-color: #837d7d;
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+
+  100% {
+    width: 1000px;
+    height: 1000px;
+    opacity: 0;
+  }
 }
 
 .filter-toggle {
