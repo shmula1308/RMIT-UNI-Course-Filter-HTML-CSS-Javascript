@@ -158,11 +158,24 @@ img {
   border-radius: 50px;
   font-family: inherit;
   font-weight: var(--fw-light);
-  color: #a7a7a7;
+  color: #757575;
   cursor: pointer;
   background-color: var(--clr-neutral-body);
   border: 1px solid #e1e1e1;
-  margin-right: 0.75em;
+  margin-left: 0.5em;
+}
+
+.filter-toggle-active {
+  background-color: #f0f0f0;
+}
+
+.fa-chevron-down {
+  transition: transform 0.2s linear;
+  transform: rotate(0deg);
+}
+
+.rotateArrow {
+  transform: rotate(-180deg);
 }
 
 .reset {
@@ -175,6 +188,7 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
+  display: none;
 }
 
 .reset:hover {
@@ -185,9 +199,13 @@ img {
 
 .industry-filter-body {
   margin-top: 2em;
-  padding-left: 0.3em;
+  padding-left: 0.6em;
   font-weight: var(--fw-thin);
+  transition: max-height 0.3s linear;
+  max-height: 0;
+  overflow: hidden;
 }
+
 .industry-filter-list {
   width: 100%;
   padding: 0;
@@ -215,14 +233,19 @@ img {
   position: relative;
 }
 
+.fa-square-selected {
+  opacity: 0;
+}
+
+.checkBox-active {
+  opacity: 1;
+}
+
 .filter-checkbox {
   position: absolute;
   z-index: 100;
   opacity: 0;
   cursor: pointer;
-}
-.fa-square-selected {
-  display: none;
 }
 
 .list-item-label {
@@ -235,6 +258,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  transition: 0.3s linear;
 }
 
 .course-card {
@@ -242,6 +266,17 @@ img {
   flex-grow: 0;
   flex-shrink: 1;
   padding: 8px;
+  transition: animation 0.3s linear;
+  animation: scaleUp 0.2s ease-in-out;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .course-card-image {

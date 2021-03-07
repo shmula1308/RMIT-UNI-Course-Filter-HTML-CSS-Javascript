@@ -1,7 +1,12 @@
 const buttons = document.querySelectorAll('.btn');
 const courses = document.querySelectorAll('.course-card');
-const coursesContainer = document.querySelector('.courses')
-console.log(coursesContainer)
+const coursesContainer = document.querySelector('.courses');
+const filterToggleBtn = document.querySelector('.filter-toggle');
+const checkBoxFilter = document.querySelector('.industry-filter-body');
+const arrow = document.querySelector('.fa-chevron-down');
+const filterCheckBoxes = document.querySelectorAll('.filter-checkbox');
+
+
 
 /* Buttons ripple effect */
 
@@ -23,27 +28,13 @@ buttons.forEach(btn => {
         },500)
 })
 
+/* Filter courses */
+
     btn.addEventListener('mouseup', function(ev) {
         
-          if(ev.currentTarget.value === 'all') {
-            let df = new DocumentFragment();
-            courses.forEach(c => {
-              df.appendChild(c);
-            })
             coursesContainer.innerHTML = "";
-            coursesContainer.appendChild(df)
-          } else {
-            let df = new DocumentFragment();
-            let course = filterCourses(ev);
-            course.forEach(c => {
-              df.appendChild(c);
-            })
-            coursesContainer.innerHTML = "";
-            coursesContainer.appendChild(df);
-          }
-
+            coursesContainer.appendChild(documentFragment(ev));
         
-
           if(ev.currentTarget === buttons[0]) {
             buttons[0].classList.add('active');
             removeActiveClass(ev);
@@ -56,9 +47,30 @@ buttons.forEach(btn => {
           } else {
             ev.currentTarget.classList.remove('active');
             buttons[0].classList.add('active');
+            coursesContainer.innerHTML = "";
+            let df = new DocumentFragment();
+            courses.forEach(c => {
+              df.appendChild(c);
+            })
+            coursesContainer.appendChild(df);
           }       
 })
 })
+
+function documentFragment(ev) {
+  let df = new DocumentFragment();
+  if(ev.currentTarget.value === 'all') {
+    courses.forEach(c => {
+      df.appendChild(c);
+    })
+  } else {
+      let course = filterCourses(ev);
+      course.forEach(c => {
+        df.appendChild(c);
+      })
+    }
+    return df;
+}
 
 function removeActiveClass(ev) {
     buttons.forEach(btn => {
@@ -73,4 +85,24 @@ function filterCourses(ev) {
         return course.className.includes(courseBtnValue);
     })
 }
+
+/* Secondary Checkbox filter */
+
+filterToggleBtn.addEventListener('mouseup',() => {
+  arrow.classList.toggle('rotateArrow');
+  filterToggleBtn.classList.toggle('filter-toggle-active')
+  if(checkBoxFilter.style.maxHeight) {
+    checkBoxFilter.style.maxHeight = null;
+  } else {
+    checkBoxFilter.style.maxHeight = checkBoxFilter.scrollHeight + 'px'; 
+  }
+})
+
+filterCheckBoxes.forEach(checkBox => {
+  checkBox.addEventListener('mouseup', function(ev) {
+    let checkBoxes = ev.target.parentNode.querySelectorAll('i');
+    checkBoxes[0].classList.toggle('fas');
+    checkBoxes[0].classList.toggle('checkBox-active')
+  })
+})
 
