@@ -30,31 +30,31 @@ buttons.forEach(btn => {
 
 /* Filter courses */
 
-    btn.addEventListener('mouseup', function(ev) {
-        
-            coursesContainer.innerHTML = "";
-            coursesContainer.appendChild(documentFragment(ev));
-        
-          if(ev.currentTarget === buttons[0]) {
-            buttons[0].classList.add('active');
-            removeActiveClass(ev);
-          }
+      btn.addEventListener('mouseup', function(ev) {
+              
+          coursesContainer.innerHTML = "";
+          coursesContainer.appendChild(documentFragment(ev));
 
-          if(!ev.currentTarget.className.includes('active')) {
-            ev.currentTarget.classList.add('active');
-            removeActiveClass(ev);
-            buttons[0].classList.remove('active');
-          } else {
-            ev.currentTarget.classList.remove('active');
-            buttons[0].classList.add('active');
-            coursesContainer.innerHTML = "";
-            let df = new DocumentFragment();
-            courses.forEach(c => {
-              df.appendChild(c);
-            })
-            coursesContainer.appendChild(df);
-          }       
-})
+        if(ev.currentTarget === buttons[0]) {
+          buttons[0].classList.add('active');
+          removeActiveClass(ev);
+        }
+
+        if(!ev.currentTarget.className.includes('active')) {
+          ev.currentTarget.classList.add('active');
+          removeActiveClass(ev);
+          buttons[0].classList.remove('active');
+        } else {
+          ev.currentTarget.classList.remove('active');
+          buttons[0].classList.add('active');
+          coursesContainer.innerHTML = "";
+          let df = new DocumentFragment();
+          courses.forEach(c => {
+            df.appendChild(c);
+          })
+          coursesContainer.appendChild(df);
+        }       
+      })
 })
 
 function documentFragment(ev) {
@@ -93,16 +93,35 @@ filterToggleBtn.addEventListener('mouseup',() => {
   filterToggleBtn.classList.toggle('filter-toggle-active')
   if(checkBoxFilter.style.maxHeight) {
     checkBoxFilter.style.maxHeight = null;
+    checkBoxFilter.style.overflow = "hidden";
   } else {
     checkBoxFilter.style.maxHeight = checkBoxFilter.scrollHeight + 'px'; 
+    setTimeout(()=>{
+      checkBoxFilter.style.overflow = "visible";
+    },100)
   }
 })
 
 filterCheckBoxes.forEach(checkBox => {
-  checkBox.addEventListener('mouseup', function(ev) {
+  checkBox.addEventListener('change', function(ev) {
     let checkBoxes = ev.target.parentNode.querySelectorAll('i');
     checkBoxes[0].classList.toggle('fas');
-    checkBoxes[0].classList.toggle('checkBox-active')
+    checkBoxes[0].classList.toggle('checkBox-active');
   })
+  checkBox.addEventListener('mousedown', function(ev) {
+    
+    let span = ev.target.nextElementSibling.firstElementChild;
+    console.log(span)
+    span.classList.add('checkbox-ripple-active');
+
+    setTimeout(()=> {
+      span.classList.remove('checkbox-ripple-active')
+    },400)
+  })
+  
+  // checkBox.addEventListener('mouseup', function(ev) {
+  //   let span = ev.target.nextElementSibling.firstElementChild;
+  //   span.classList.toggle('checkbox-ripple')
+  // })
 })
 

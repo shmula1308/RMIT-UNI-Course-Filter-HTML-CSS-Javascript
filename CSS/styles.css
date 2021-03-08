@@ -137,6 +137,40 @@ img {
   background-color: #837d7d;
 }
 
+.checkbox-ripple {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.2;
+  transform: scale(0);
+  border-radius: 50%;
+  transition: transform 0.1s ease-in-out;
+  background-color: #837d7d;
+}
+
+.checkbox-ripple-active {
+  transform: scale(1);
+  opacity: 0.4;
+}
+
+@keyframes checkbox-ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.3;
+  }
+  10% {
+    width: 50px;
+    height: 50px;
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes animate {
   0% {
     width: 0;
@@ -163,6 +197,7 @@ img {
   background-color: var(--clr-neutral-body);
   border: 1px solid #e1e1e1;
   margin-left: 0.5em;
+  margin-bottom: 2em;
 }
 
 .filter-toggle-active {
@@ -197,8 +232,15 @@ img {
 
 /* Filter list */
 
+.industry-filter {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
 .industry-filter-body {
-  margin-top: 2em;
   padding-left: 0.6em;
   font-weight: var(--fw-thin);
   transition: max-height 0.3s linear;
@@ -227,18 +269,12 @@ img {
 }
 
 .fa-square {
+  position: relative;
   margin-right: 0.5em;
   font-size: 1.3rem;
   display: inline-block;
   position: relative;
-}
-
-.fa-square-selected {
-  opacity: 0;
-}
-
-.checkBox-active {
-  opacity: 1;
+  transition: 0.3s ease-in-out;
 }
 
 .filter-checkbox {
