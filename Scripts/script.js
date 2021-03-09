@@ -5,7 +5,10 @@ const filterToggleBtn = document.querySelector('.filter-toggle');
 const checkBoxFilter = document.querySelector('.industry-filter-body');
 const arrow = document.querySelector('.fa-chevron-down');
 const filterCheckBoxes = document.querySelectorAll('.filter-checkbox');
-
+const categoryToggle = document.getElementById('category-toggle');
+const resetBtn = document.querySelector('.reset');
+const checkBoxIcons = document.querySelectorAll('.fa-square');
+let counter = 0;
 
 
 /* Buttons ripple effect */
@@ -107,6 +110,7 @@ filterCheckBoxes.forEach(checkBox => {
     let checkBoxes = ev.target.parentNode.querySelectorAll('i');
     checkBoxes[0].classList.toggle('fas');
     checkBoxes[0].classList.toggle('checkBox-active');
+    updateCategoryToggle(checkBox);
   })
   checkBox.addEventListener('mousedown', function(ev) {
     
@@ -118,10 +122,53 @@ filterCheckBoxes.forEach(checkBox => {
       span.classList.remove('checkbox-ripple-active')
     },400)
   })
+})
+
+function updateCategoryToggle(checkBox) {
+  let span = document.createElement('span');
+  span.classList.add('filter-toggle-counter');
   
-  // checkBox.addEventListener('mouseup', function(ev) {
-  //   let span = ev.target.nextElementSibling.firstElementChild;
-  //   span.classList.toggle('checkbox-ripple')
-  // })
+  if(counter > 0) {
+    categoryToggle.firstElementChild.remove();
+  } 
+  if(checkBox.checked) {
+    filterToggleBtn.classList.add('filter-toggle-bg');
+    counter++;
+    if(counter > 1) {
+      categoryToggle.innerHTML = "Categories";
+    } 
+    span.innerHTML = counter;
+    categoryToggle.prepend(span);
+    resetBtn.style.display = 'inline-flex';
+  } else {
+    counter--;
+    if(counter < 2) {
+      categoryToggle.innerHTML = "Category";
+    }
+    if(counter === 0) {
+      filterToggleBtn.classList.remove('filter-toggle-bg');
+      resetBtn.style.display = 'none';
+      return;
+    }
+    span.innerHTML = counter;
+    categoryToggle.prepend(span);
+  }  
+}
+
+/* Reset secondary filter */
+
+resetBtn.addEventListener('click', () => {
+  counter = 0;
+  categoryToggle.firstElementChild.remove();
+  filterToggleBtn.classList.remove('filter-toggle-bg');
+  categoryToggle.innerHTML = "Category";
+
+  filterCheckBoxes.forEach(checkBox => {
+    checkBox.checked = false;
+  })
+  checkBoxIcons.forEach(icon => {
+    icon.className = "far fa-square";
+    resetBtn.style.display = "none";
+  })
 })
 

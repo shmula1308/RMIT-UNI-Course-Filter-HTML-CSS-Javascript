@@ -198,10 +198,21 @@ img {
   border: 1px solid #e1e1e1;
   margin-left: 0.5em;
   margin-bottom: 2em;
+  transition: background-color 0.2s ease-in;
 }
 
 .filter-toggle-active {
   background-color: #f0f0f0;
+}
+
+.filter-toggle-bg {
+  background-color: #4a4a4a;
+  color: #cbcbcb;
+}
+
+.filter-toggle-counter {
+  font-size: 0.7rem;
+  margin-right: 0.3em;
 }
 
 .fa-chevron-down {
@@ -221,8 +232,7 @@ img {
   font-weight: var(--fw-light);
   color: var(--clr-blue);
   cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
+  margin-left: 1.2em;
   display: none;
 }
 
