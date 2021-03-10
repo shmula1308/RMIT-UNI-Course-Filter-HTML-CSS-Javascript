@@ -188,7 +188,7 @@ img {
 .filter-toggle {
   border: 0;
   outline: none;
-  padding: 0.5em 1em;
+  padding: 0.7em 1.5em;
   border-radius: 50px;
   font-family: inherit;
   font-weight: var(--fw-light);
@@ -218,6 +218,9 @@ img {
 .fa-chevron-down {
   transition: transform 0.2s linear;
   transform: rotate(0deg);
+  margin-left: 0.1em;
+  position: relative;
+  top: 1px;
 }
 
 .rotateArrow {
@@ -339,6 +342,7 @@ img {
   text-decoration: none;
   overflow: hidden;
   border-radius: 4px;
+  color: #202020;
 }
 
 .course-card-link:hover {

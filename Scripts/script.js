@@ -11,7 +11,7 @@ const checkBoxIcons = document.querySelectorAll('.fa-square');
 let counter = 0;
 
 
-/* Buttons ripple effect */
+/* Main filter Buttons ripple effect */
 
 buttons.forEach(btn => {
     btn.addEventListener('mousedown', function(ev) {
@@ -115,7 +115,6 @@ filterCheckBoxes.forEach(checkBox => {
   checkBox.addEventListener('mousedown', function(ev) {
     
     let span = ev.target.nextElementSibling.firstElementChild;
-    console.log(span)
     span.classList.add('checkbox-ripple-active');
 
     setTimeout(()=> {
@@ -155,6 +154,27 @@ function updateCategoryToggle(checkBox) {
   }  
 }
 
+/* Sorting with secondary checkbox filters*/
+
+let checkBoxesArray = Array.from(filterCheckBoxes);
+
+checkBoxesArray.forEach(checkBox => {
+  checkBox.addEventListener('change',(ev) => {
+    let checkBoxLabel =  ev.target.value;
+    filterWithCheckBox(checkBoxLabel)
+  })
+})
+
+function filterWithCheckBox(label) {
+  let coursesArr = Array.from(courses);
+  let filteredCourses =  coursesArr.filter(course => course.dataset.value.split("/").includes(label));
+  
+  let df = new DocumentFragment();
+  filteredCourses.forEach(course => df.appendChild(course));
+  coursesContainer.innerHTML = "";
+  coursesContainer.appendChild(df);
+}
+
 /* Reset secondary filter */
 
 resetBtn.addEventListener('click', () => {
@@ -172,3 +192,18 @@ resetBtn.addEventListener('click', () => {
   })
 })
 
+
+
+
+
+/*
+artificial-intelligence
+bussines-and-finance
+data-science
+design
+health-transformation
+it-security
+marketing
+science-engineering
+software-development
+*/
