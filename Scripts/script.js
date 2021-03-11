@@ -1,5 +1,5 @@
-const buttons = document.querySelectorAll('.btn');
-const courses = document.querySelectorAll('.course-card');
+const buttons = document.querySelectorAll('.filter-btn');
+let   courses = document.querySelectorAll('.course-card');
 const coursesContainer = document.querySelector('.courses');
 const filterToggleBtn = document.querySelector('.filter-toggle');
 const checkBoxFilter = document.querySelector('.industry-filter-body');
@@ -8,7 +8,9 @@ const filterCheckBoxes = document.querySelectorAll('.filter-checkbox');
 const categoryToggle = document.getElementById('category-toggle');
 const resetBtn = document.querySelector('.reset');
 const checkBoxIcons = document.querySelectorAll('.fa-square');
+let checkedBoxes = [];
 let counter = 0;
+let  mainFilterCourses = Array.from(courses);
 
 
 /* Main filter Buttons ripple effect */
@@ -37,7 +39,7 @@ buttons.forEach(btn => {
               
           coursesContainer.innerHTML = "";
           coursesContainer.appendChild(documentFragment(ev));
-
+          
         if(ev.currentTarget === buttons[0]) {
           buttons[0].classList.add('active');
           removeActiveClass(ev);
@@ -63,23 +65,19 @@ buttons.forEach(btn => {
 function documentFragment(ev) {
   let df = new DocumentFragment();
   if(ev.currentTarget.value === 'all') {
-    courses.forEach(c => {
+    mainFilterCourses = Array.from(courses);
+    
+    mainFilterCourses.forEach(c => {
       df.appendChild(c);
     })
   } else {
-      let course = filterCourses(ev);
-      course.forEach(c => {
+      mainFilterCourses = filterCourses(ev);
+      mainFilterCourses.forEach(c => {
         df.appendChild(c);
       })
+      
     }
     return df;
-}
-
-function removeActiveClass(ev) {
-    buttons.forEach(btn => {
-        if(ev.currentTarget != btn)
-        btn.classList.remove('active');
-    })
 }
 
 function filterCourses(ev) {
@@ -87,6 +85,14 @@ function filterCourses(ev) {
         let courseBtnValue = ev.currentTarget.value;
         return course.className.includes(courseBtnValue);
     })
+    
+}
+
+function removeActiveClass(ev) {
+  buttons.forEach(btn => {
+      if(ev.currentTarget != btn)
+      btn.classList.remove('active');
+  })
 }
 
 /* Secondary Checkbox filter */
@@ -160,17 +166,40 @@ let checkBoxesArray = Array.from(filterCheckBoxes);
 
 checkBoxesArray.forEach(checkBox => {
   checkBox.addEventListener('change',(ev) => {
-    let checkBoxLabel =  ev.target.value;
-    filterWithCheckBox(checkBoxLabel)
+    if(ev.target.checked) {
+      courses = document.querySelectorAll('.course-card');
+      let checkBoxLabel =  ev.target.value;
+      checkedBoxes.push(checkBoxLabel);
+      filterWithCheckBox(checkedBoxes);
+      console.log(checkedBoxes)
+    } else {
+      checkedBoxes = checkedBoxes.filter(category => category != ev.target.value);
+      filterWithCheckBox(checkedBoxes);
+    }
   })
 })
 
-function filterWithCheckBox(label) {
-  let coursesArr = Array.from(courses);
-  let filteredCourses =  coursesArr.filter(course => course.dataset.value.split("/").includes(label));
-  
+function filterWithCheckBox(labelsArray) {
   let df = new DocumentFragment();
-  filteredCourses.forEach(course => df.appendChild(course));
+  if(!labelsArray.length) {
+    mainFilterCourses.forEach(course => df.appendChild(course));
+    coursesContainer.innerHTML = "";
+    
+    coursesContainer.appendChild(df);
+    console.log(coursesContainer.innerHTML)
+    return;
+  }
+  
+  
+  
+  let filteredCourses = labelsArray.map(label => mainFilterCourses.filter(course => course.dataset.value.split("/").includes(label)));
+  // let filteredCourses =  coursesArr.filter(course => course.dataset.value.split("/").includes(label));
+  let a  = filteredCourses.reduce((a,b) => a.concat(b),[]);
+ 
+  
+
+  // let df = new DocumentFragment();
+  a.forEach(course => df.appendChild(course));
   coursesContainer.innerHTML = "";
   coursesContainer.appendChild(df);
 }
@@ -196,6 +225,8 @@ resetBtn.addEventListener('click', () => {
 
 
 
+
+
 /*
 artificial-intelligence
 bussines-and-finance
@@ -207,3 +238,4 @@ marketing
 science-engineering
 software-development
 */
+
