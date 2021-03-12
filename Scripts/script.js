@@ -37,8 +37,9 @@ buttons.forEach(btn => {
 
       btn.addEventListener('mouseup', function(ev) {
               
-          coursesContainer.innerHTML = "";
-          coursesContainer.appendChild(documentFragment(ev));
+          // coursesContainer.innerHTML = "";
+          // coursesContainer.appendChild(documentFragment(ev));
+          documentFragment(ev)
           
         if(ev.currentTarget === buttons[0]) {
           buttons[0].classList.add('active');
@@ -49,23 +50,25 @@ buttons.forEach(btn => {
           ev.currentTarget.classList.add('active');
           removeActiveClass(ev);
           buttons[0].classList.remove('active');
-          
+
         } else {
           ev.currentTarget.classList.remove('active');
           buttons[0].classList.add('active');
-          coursesContainer.innerHTML = "";
-          let df = new DocumentFragment();
-          
-          courses.forEach(c => {
-            df.appendChild(c);
-          })
-          coursesContainer.appendChild(df);
+          // coursesContainer.innerHTML = "";
+          // let df = new DocumentFragment();
+          console.log("hello baby im here")
+          mainFilterCourses = Array.from(courses);
+          filterWithCheckBox(checkedBoxes);
+          // courses.forEach(c => {
+          //   df.appendChild(c);
+          // })
+          // coursesContainer.appendChild(df);
         }       
       })
 })
 
 function documentFragment(ev) {
-  let df = new DocumentFragment();
+  // let df = new DocumentFragment();
   if(ev.currentTarget.value === 'all') {
     mainFilterCourses = Array.from(courses);
     filterWithCheckBox(checkedBoxes);
@@ -80,7 +83,7 @@ function documentFragment(ev) {
       // })
       
     }
-    return df;
+    // return df;
 }
 
 function filterCourses(ev) {
@@ -192,7 +195,8 @@ function filterWithCheckBox(labelsArray) {
   }
   
   
-  
+  console.log("im running")
+  console.log(courses)
   let filteredCourses = labelsArray.map(label => mainFilterCourses.filter(course => course.dataset.value.split("/").includes(label)));
   
   
