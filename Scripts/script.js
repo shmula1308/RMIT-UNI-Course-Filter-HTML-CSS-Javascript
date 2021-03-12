@@ -8,6 +8,8 @@ const filterCheckBoxes = document.querySelectorAll('.filter-checkbox');
 const categoryToggle = document.getElementById('category-toggle');
 const resetBtn = document.querySelector('.reset');
 const checkBoxIcons = document.querySelectorAll('.fa-square');
+const displayNoResults = document.querySelector('.no-results')
+let activeBtn = document.querySelector('.filter-btn');
 let checkedBoxes = [];
 let counter = 0;
 let  mainFilterCourses = Array.from(courses);
@@ -36,11 +38,9 @@ buttons.forEach(btn => {
 /* Filter courses */
 
       btn.addEventListener('mouseup', function(ev) {
-              
-          // coursesContainer.innerHTML = "";
-          // coursesContainer.appendChild(documentFragment(ev));
+           
           documentFragment(ev)
-          
+          activeBtn = ev.currentTarget;
         if(ev.currentTarget === buttons[0]) {
           buttons[0].classList.add('active');
           removeActiveClass(ev);
@@ -54,36 +54,27 @@ buttons.forEach(btn => {
         } else {
           ev.currentTarget.classList.remove('active');
           buttons[0].classList.add('active');
-          // coursesContainer.innerHTML = "";
-          // let df = new DocumentFragment();
-          console.log("hello baby im here")
+          activeBtn = document.querySelector('.filter-btn');
+         
+          
           mainFilterCourses = Array.from(courses);
           filterWithCheckBox(checkedBoxes);
-          // courses.forEach(c => {
-          //   df.appendChild(c);
-          // })
-          // coursesContainer.appendChild(df);
+          
         }       
       })
 })
 
 function documentFragment(ev) {
-  // let df = new DocumentFragment();
+  
   if(ev.currentTarget.value === 'all') {
     mainFilterCourses = Array.from(courses);
     filterWithCheckBox(checkedBoxes);
-    // mainFilterCourses.forEach(c => {
-    //   df.appendChild(c);
-    // })
+    
   } else {
       mainFilterCourses = filterCourses(ev);
       filterWithCheckBox(checkedBoxes);
-      // mainFilterCourses.forEach(c => {
-      //   df.appendChild(c);
-      // })
-      
     }
-    // return df;
+    
 }
 
 function filterCourses(ev) {
@@ -111,7 +102,7 @@ filterToggleBtn.addEventListener('mouseup',() => {
     checkBoxFilter.style.overflow = "hidden";
   } else {
     checkBoxFilter.style.maxHeight = checkBoxFilter.scrollHeight + 'px'; 
-    setTimeout(()=>{
+    setTimeout(() => {
       checkBoxFilter.style.overflow = "visible";
     },100)
   }
@@ -176,7 +167,7 @@ checkBoxesArray.forEach(checkBox => {
       let checkBoxLabel =  ev.target.value;
       checkedBoxes.push(checkBoxLabel);
       filterWithCheckBox(checkedBoxes);
-      console.log(checkedBoxes)
+     
     } else {
       checkedBoxes = checkedBoxes.filter(category => category != ev.target.value);
       filterWithCheckBox(checkedBoxes);
@@ -194,17 +185,15 @@ function filterWithCheckBox(labelsArray) {
     return;
   }
   
-  
-  console.log("im running")
-  console.log(courses)
   let filteredCourses = labelsArray.map(label => mainFilterCourses.filter(course => course.dataset.value.split("/").includes(label)));
   
-  
   let a  = filteredCourses.reduce((a,b) => a.concat(b),[]);
-  console.log(a)
- 
   
-
+  if(!a.length) {
+    displayNoResults.style.display = 'block';
+  } else {
+    displayNoResults.style.display = 'none';
+  }
   
   a.forEach(course => df.appendChild(course));
   coursesContainer.innerHTML = "";
@@ -216,34 +205,34 @@ function filterWithCheckBox(labelsArray) {
 
 resetBtn.addEventListener('click', () => {
   counter = 0;
-  categoryToggle.firstElementChild.remove();
-  filterToggleBtn.classList.remove('filter-toggle-bg');
+  checkedBoxes = [];
+
   categoryToggle.innerHTML = "Category";
+  filterToggleBtn.classList.remove('filter-toggle-bg');
+  
 
   filterCheckBoxes.forEach(checkBox => {
     checkBox.checked = false;
   })
+
+  if(activeBtn.value === 'all') {
+    let df = new DocumentFragment();
+    mainFilterCourses.forEach(course => df.appendChild(course));
+    coursesContainer.innerHTML = "";
+    coursesContainer.appendChild(df);
+  } else {
+    let activeCategory = Array.from(courses).filter(course => course.className.includes(activeBtn.value));
+    
+    let df = new DocumentFragment();
+    activeCategory.forEach(course => df.appendChild(course));
+    coursesContainer.innerHTML = "";
+    coursesContainer.appendChild(df);
+  }
   checkBoxIcons.forEach(icon => {
-    icon.className = "far fa-square";
-    resetBtn.style.display = "none";
-  })
+      icon.className = "far fa-square";
+      resetBtn.style.display = "none";
+    })
 })
 
 
-
-
-
-
-
-/*
-artificial-intelligence
-bussines-and-finance
-data-science
-design
-health-transformation
-it-security
-marketing
-science-engineering
-software-development
-*/
 

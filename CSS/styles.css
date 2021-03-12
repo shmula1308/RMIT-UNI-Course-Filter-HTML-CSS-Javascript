@@ -389,6 +389,10 @@ hgroup {
   margin-top: 6px;
 }
 
+.no-results {
+  display: none;
+}
+
 /* Color coding cards */
 
 .short-course img {
