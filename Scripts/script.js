@@ -49,11 +49,13 @@ buttons.forEach(btn => {
           ev.currentTarget.classList.add('active');
           removeActiveClass(ev);
           buttons[0].classList.remove('active');
+          
         } else {
           ev.currentTarget.classList.remove('active');
           buttons[0].classList.add('active');
           coursesContainer.innerHTML = "";
           let df = new DocumentFragment();
+          
           courses.forEach(c => {
             df.appendChild(c);
           })
@@ -66,15 +68,16 @@ function documentFragment(ev) {
   let df = new DocumentFragment();
   if(ev.currentTarget.value === 'all') {
     mainFilterCourses = Array.from(courses);
-    
-    mainFilterCourses.forEach(c => {
-      df.appendChild(c);
-    })
+    filterWithCheckBox(checkedBoxes);
+    // mainFilterCourses.forEach(c => {
+    //   df.appendChild(c);
+    // })
   } else {
       mainFilterCourses = filterCourses(ev);
-      mainFilterCourses.forEach(c => {
-        df.appendChild(c);
-      })
+      filterWithCheckBox(checkedBoxes);
+      // mainFilterCourses.forEach(c => {
+      //   df.appendChild(c);
+      // })
       
     }
     return df;
@@ -167,7 +170,6 @@ let checkBoxesArray = Array.from(filterCheckBoxes);
 checkBoxesArray.forEach(checkBox => {
   checkBox.addEventListener('change',(ev) => {
     if(ev.target.checked) {
-      courses = document.querySelectorAll('.course-card');
       let checkBoxLabel =  ev.target.value;
       checkedBoxes.push(checkBoxLabel);
       filterWithCheckBox(checkedBoxes);
@@ -186,22 +188,24 @@ function filterWithCheckBox(labelsArray) {
     coursesContainer.innerHTML = "";
     
     coursesContainer.appendChild(df);
-    console.log(coursesContainer.innerHTML)
     return;
   }
   
   
   
   let filteredCourses = labelsArray.map(label => mainFilterCourses.filter(course => course.dataset.value.split("/").includes(label)));
-  // let filteredCourses =  coursesArr.filter(course => course.dataset.value.split("/").includes(label));
+  
+  
   let a  = filteredCourses.reduce((a,b) => a.concat(b),[]);
+  console.log(a)
  
   
 
-  // let df = new DocumentFragment();
+  
   a.forEach(course => df.appendChild(course));
   coursesContainer.innerHTML = "";
   coursesContainer.appendChild(df);
+  
 }
 
 /* Reset secondary filter */
