@@ -306,8 +306,7 @@ img {
 .courses {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  transition: 0.3s linear;
+  /* flex-direction: row; */
 }
 
 .course-card {
@@ -315,7 +314,6 @@ img {
   flex-grow: 0;
   flex-shrink: 1;
   padding: 8px;
-  transition: animation 0.3s linear;
   animation: scaleUp 0.2s ease-in-out;
 }
 
@@ -409,4 +407,37 @@ hgroup {
 
 .undergraduate img {
   border-bottom: 7px solid var(--clr-yellow);
+}
+
+@media screen and (max-width: 1640px) {
+  .course-card {
+    flex-basis: 33.33%;
+  }
+  .idustry-filter-list-item {
+    flex-basis: 33.33%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .course-card {
+    flex-basis: 50%;
+  }
+  .idustry-filter-list-item {
+    flex-basis: 50%;
+  }
+  /* .industry-filter {
+    margin-bottom: 3.5em;
+  } */
+}
+
+@media screen and (max-width: 855px) {
+  .course-card {
+    flex-basis: 100%;
+  }
+  .idustry-filter-list-item {
+    flex-basis: 100%;
+  }
+  /* .industry-filter {
+    margin-bottom: 13em;
+  } */
 }

@@ -101,7 +101,7 @@ filterToggleBtn.addEventListener('mouseup',() => {
     checkBoxFilter.style.maxHeight = null;
     checkBoxFilter.style.overflow = "hidden";
   } else {
-    checkBoxFilter.style.maxHeight = checkBoxFilter.scrollHeight + 'px'; 
+    checkBoxFilter.style.maxHeight = 'fit-content'; 
     setTimeout(() => {
       checkBoxFilter.style.overflow = "visible";
     },100)
@@ -207,6 +207,8 @@ resetBtn.addEventListener('click', () => {
   counter = 0;
   checkedBoxes = [];
 
+  displayNoResults.style.display = 'none';
+  
   categoryToggle.innerHTML = "Category";
   filterToggleBtn.classList.remove('filter-toggle-bg');
   
